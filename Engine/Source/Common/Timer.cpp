@@ -7,7 +7,7 @@
 namespace Time
 {
 	/* Get Time in format '00:00:00' */
-/* Stripped = 000000 */
+	/* Stripped = 000000 */
 	std::wstring GetTime(BOOL stripped)
 	{
 		time_t now = time(0);
@@ -103,7 +103,7 @@ VOID Timer::Tick()
 	m_DeltaTime = (m_CurrentTime - m_PreviousTime) * m_SecondsPerCount;
 	// Prepare for next frame.
 	m_PreviousTime = m_CurrentTime;
-	// Force nonnegative. The DXSDK’s CDXUTTimer mentions that if the 
+	// Force nonnegative. The DXSDKâ€™s CDXUTTimer mentions that if the 
 	// processor goes into a power save mode or we get shuffled to
 	// another processor, then mDeltaTime can be negative.
 	if (m_DeltaTime < 0.0)
@@ -129,7 +129,7 @@ VOID Timer::Reset()
 
 VOID Timer::Stop()
 {
-	// If we are already stopped, then don’t do anything.
+	// If we are already stopped, then donâ€™t do anything.
 	if (!m_IsStopped)
 	{
 		INT64 currTime;
