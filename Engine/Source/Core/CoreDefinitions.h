@@ -1,9 +1,9 @@
 #pragma once
 
 #ifdef BUILD_DLL
-#define ENGINE_API __declspec(dllexport)
+  #define ENGINE_API __declspec(dllexport)
 #else
-#define ENGINE_API __declspec(dllimport)
+  #define ENGINE_API __declspec(dllimport)
 #endif BUILD_DLL
 
 #define MAX_NAME_STRING 256
