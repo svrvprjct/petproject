@@ -22,10 +22,13 @@
 #include <assert.h>
 #include <shellapi.h>
 #include <exception>
+
 #include "d3dx12.h"
 #include "MathHelper.h"
 #include "DXHelper.h"
 #include "DDSTextureLoader.h"
+
+#define MaxLights 21
 
 extern const int gNumFrameResources;
 
@@ -188,8 +191,6 @@ struct Light
     DirectX::XMFLOAT3 Position = { 0.0f, 0.0f, 0.0f };  // point/spot light only
     float SpotPower = 64.0f;                            // spot light only
 };
-
-#define MaxLights 21
 
 struct MaterialConstants
 {
@@ -370,14 +371,3 @@ struct AddMaterialData
 #ifndef ReleaseCom
 #define ReleaseCom(x) { if(x){ x->Release(); x = 0; } }
 #endif
-
-
-
-
-
-
-
-
-
-
-
