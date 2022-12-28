@@ -10,6 +10,9 @@ namespace Win32
 
 		virtual VOID RegisterNewClass();
 		virtual VOID Initialize() = 0;
+		
+		HWND Handle()		{ return m_Handle; }
+		VOID Handle(HWND hWnd)  { m_Handle = hWnd; }
 
 	protected:
 		static LRESULT CALLBACK	SetupMessageHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -21,9 +24,5 @@ namespace Win32
 		std::wstring m_Title;
 		HICON m_hIcon;
 		HWND m_Handle;
-
-	public:
-		HWND Handle()		   { return m_Handle; }
-		VOID Handle(HWND hWnd) { m_Handle = hWnd; }
 	};
 }
