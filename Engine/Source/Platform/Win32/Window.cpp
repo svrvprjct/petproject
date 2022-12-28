@@ -1,4 +1,4 @@
-﻿#include "Engine.h"
+#include "Engine.h"
 #include "Window.h"
 #include "ImGui/imgui_impl_win32.h"
 
@@ -59,15 +59,15 @@ namespace Win32
 	{
 		switch (message)
 		{
-			case WM_NCCREATE:		 { OnNonClientCreate(); }								 return TRUE;
-			case WM_NCACTIVATE:		 { OnNonClientActivate(LOWORD(wParam) != WA_INACTIVE); } return TRUE;
-			case WM_NCPAINT:		 { OnNonClientPaint((HRGN)wParam); }					 return FALSE;
-			case WM_NCLBUTTONDOWN:	 { OnNonClientLeftMouseButtonDown(); }					 break;
-			case WM_NCLBUTTONDBLCLK: { Utils::MaximizeWindow(Handle()); }					 return 0;
-			case WM_GETMINMAXINFO:	 { OnGetMinMaxInfo((MINMAXINFO*)lParam); }				 return 0;
-			case WM_EXITSIZEMOVE:	 { OnExitSizeMove(); }									 break;
-			case WM_PAINT:			 { OnPaint(); }											 break;
-			case WM_TIMER:			 { RedrawWindow(); }									 break;	
+			case WM_NCCREATE:	 { OnNonClientCreate(); }				 return TRUE;
+			case WM_NCACTIVATE:	 { OnNonClientActivate(LOWORD(wParam) != WA_INACTIVE); } return TRUE;
+			case WM_NCPAINT:	 { OnNonClientPaint((HRGN)wParam); }			 return FALSE;
+			case WM_NCLBUTTONDOWN:	 { OnNonClientLeftMouseButtonDown(); }			 break;
+			case WM_NCLBUTTONDBLCLK: { Utils::MaximizeWindow(Handle()); }			 return 0;
+			case WM_GETMINMAXINFO:	 { OnGetMinMaxInfo((MINMAXINFO*)lParam); }		 return 0;
+			case WM_EXITSIZEMOVE:	 { OnExitSizeMove(); }					 break;
+			case WM_PAINT:		 { OnPaint(); }						 break;
+			case WM_TIMER:		 { RedrawWindow(); }					 break;	
 		}
 
 		return SubObject::MessageHandler(hWnd, message, wParam, lParam);
