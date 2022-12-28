@@ -21,18 +21,18 @@ namespace Engine
 			case EngineMode::DEBUG:		return L"Debug";
 			case EngineMode::EDITOR:	return L"Editor";
 			case EngineMode::RELEASE:	return L"Release";
-			default:	return L"None";
+			default:			return L"None";
 		}
 	}
 }
 
 EngineClass::EngineClass()
 {
-#ifdef _DEBUG
-	m_EngineMode = EngineMode::DEBUG;
-#else
-	m_EngineMode = EngineMode::RELEASE;
-#endif
+	#ifdef _DEBUG
+		m_EngineMode = EngineMode::DEBUG;
+	#else
+		m_EngineMode = EngineMode::RELEASE;
+	#endif
 }
 
 EngineClass::~EngineClass()
