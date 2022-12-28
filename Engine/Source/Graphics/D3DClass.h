@@ -25,6 +25,9 @@ namespace Graphics
 		virtual ~D3DClass();
 
 	public:
+		virtual void Initialize(HWND mainWnd, int width, int height);
+		void Run();
+		
 		HWND MainWnd() const;
 		float AspectRatio() const;
 		bool GetAppPaused();
@@ -40,15 +43,11 @@ namespace Graphics
 		bool Get4xMsaaQuality() const;
 		void Set4xMsaaQuality(UINT value);
 
-		void Run();
-
-		virtual void Initialize(HWND mainWnd, int width, int height);
-
 	protected:
-		virtual void CreateRtvAndDsvAndSrvDescriptorHeaps();
-		virtual void OnResize();
 		virtual void Update(const Timer& gameTimer) = 0;
 		virtual void Draw(const Timer& gameTimer) = 0;
+		virtual void OnResize();
+		virtual void CreateRtvAndDsvAndSrvDescriptorHeaps();
 
 		virtual void OnRightMouseDown(WPARAM buttonState, int x, int y) = 0;
 		virtual void OnRightMouseUp(WPARAM buttonState, int x, int y) = 0;
