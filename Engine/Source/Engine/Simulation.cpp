@@ -58,23 +58,23 @@ namespace Engine
 			// WM_ACTIVATE is sent when the window is activated or deactivated.  
 			// We pause the game when the window is deactivated and unpause it 
 			// when it becomes active.  
-			case WM_ACTIVATE:		{ OnActivate(wParam); }				return 0;
+			case WM_ACTIVATE:	{ OnActivate(wParam); }			return 0;
 			// WM_SIZE is sent when the user resizes the window.  
-			case WM_SIZE:			{ OnSize(wParam, lParam); }			return 0;
+			case WM_SIZE:		{ OnSize(wParam, lParam); }		return 0;
 			// WM_EXITSIZEMOVE is sent when the user grabs the resize bars.
-			case WM_ENTERSIZEMOVE:	{ OnEnterSizeMove(); }				return 0;
+			case WM_ENTERSIZEMOVE:	{ OnEnterSizeMove(); }			return 0;
 			// WM_EXITSIZEMOVE is sent when the user releases the resize bars.
 			// Here we reset everything based on the new window dimensions.
-			case WM_EXITSIZEMOVE:	{ OnExitSizeMove(); }				return Window::MessageHandler(hWnd, message, wParam, lParam);
-			case WM_KEYUP:			{ OnKeyUp(wParam); }				return 0;
-			case WM_KEYDOWN:		{ OnKeyDown(message, wParam); }		return 0;
+			case WM_EXITSIZEMOVE:	{ OnExitSizeMove(); }			return Window::MessageHandler(hWnd, message, wParam, lParam);
+			case WM_KEYUP:		{ OnKeyUp(wParam); }			return 0;
+			case WM_KEYDOWN:	{ OnKeyDown(message, wParam); }		return 0;
 			// WM_DESTROY is sent when the window is being destroyed.
-			case WM_NCPAINT:		{ }									return Window::MessageHandler(hWnd, message, wParam, lParam);
-			case WM_DESTROY:		{ PostQuitMessage(0); }				return 0;
+			case WM_NCPAINT:	{ }					return Window::MessageHandler(hWnd, message, wParam, lParam);
+			case WM_DESTROY:	{ PostQuitMessage(0); }			return 0;
 			case WM_RBUTTONDOWN:	{ OnRButtonDown(wParam, lParam); }	return 0;
-			case WM_RBUTTONUP:		{ OnRButtonUp(wParam, lParam); }	return 0;
-			case WM_MOUSEMOVE:		{ OnMouseMove(wParam, lParam); }	return 0;
-			case WM_MOUSEWHEEL:		{ OnMouseWheel(wParam, lParam); }	return 0;
+			case WM_RBUTTONUP:	{ OnRButtonUp(wParam, lParam); }	return 0;
+			case WM_MOUSEMOVE:	{ OnMouseMove(wParam, lParam); }	return 0;
+			case WM_MOUSEWHEEL:	{ OnMouseWheel(wParam, lParam); }	return 0;
 		}
 
 		return Window::MessageHandler(hWnd, message, wParam, lParam);
