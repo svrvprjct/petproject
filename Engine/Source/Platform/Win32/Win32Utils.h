@@ -30,13 +30,11 @@ namespace Win32
             SetWindowLong(hWnd, GWL_EXSTYLE, (exStyle & ~flagsToDisable) | flagsToEnable);
         }
 
-
         inline BOOL ENGINE_API HasStyle(HWND hwnd, DWORD style) {
             DWORD dwStyle = (DWORD)GetWindowLong(hwnd, GWL_STYLE);
             if ((dwStyle & style) != 0) return TRUE;
             return FALSE;
         }
-
 
         // Sets and clears style flags for a particular window.
         inline VOID ENGINE_API ModifyClassStyle(HWND hWnd, DWORD flagsToDisable, DWORD flagsToEnable)
